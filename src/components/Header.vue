@@ -58,7 +58,6 @@
 <script>
 // Import the assets
 import headerUp from "../assets/images/headerUp.png";
-import logo from "../assets/images/logo.jpeg";
 import searchBox from "../components/SearchBox";
 import { mapActions } from "vuex";
 
@@ -72,7 +71,6 @@ export default {
   data() {
     return {
       headerUp,
-      logo,
       catOne: false,
       searchVisible: false,
       catTwo: false,
