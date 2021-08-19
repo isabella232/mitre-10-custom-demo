@@ -2,7 +2,7 @@
   <div>
     <ais-instant-search
       :search-client="searchClient"
-      index-name="products_with_postcodes"
+      index-name="products"
     >
       <Header @showFederatedSearch="showFederatedSearchMethod" />
       <HomePage v-if="!getCatOne && !getCatTwo" />

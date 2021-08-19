@@ -36,7 +36,8 @@
               </div>
               <div class="infos">
                 <ais-highlight attribute="name" :hit="item" />
-                <p>$ {{ item.nationalPrice }}</p>
+                <p v-if="item.nationalPrice">$ {{ item.nationalPrice }}</p>
+                <p v-else>Minimum Amount: ${{item.minAmount}}</p>
               </div>
             </div>
           </ais-hits>

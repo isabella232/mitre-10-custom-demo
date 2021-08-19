@@ -17,8 +17,7 @@
           <transition name="fade">
             <ais-refinement-list
               v-if="!showShapes"
-              attribute="fineLine"
-              :transform-items="transformItems"
+              attribute="categories.lvl0"
               searchable
               show-more
             >
@@ -259,12 +258,6 @@ export default {
         value.min !== null ? value.min : range.min,
         value.max !== null ? value.max : range.max,
       ];
-    },
-    transformItems(items) {
-      return items.map((item) => ({
-        ...item,
-        label: item.label.split("[").join(""),
-      }));
     },
   },
 };
