@@ -126,4 +126,7 @@ export default {
     opacity: 0;
   }
 }
+.ais-hits{
+  width: 100%;
+}
 </style>

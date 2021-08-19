@@ -1,52 +1,49 @@
 <template>
-  <transition name="fade">
-    <div v-if="showFilter" class="filters">
-      <div class="filterBtn" @click="showFiltersMethod()">
-        <p>Navigation & Filters</p>
+  <div style="width: 20%">
+    <div class="filterBtn">
+      <p>Shop By</p>
+    </div>
+    <transition name="fade">
+      <div v-if="!showFilters" class="filters">
         <div>
-          <p v-if="!showFilters">-</p>
-          <p v-else>+</p>
-        </div>
-      </div>
-      <div>
-        <div class="filters-content">
-          <div class="title" @click="showShapeMethod()">
-            <h3>Category</h3>
-            <p>-</p>
-          </div>
-          <transition name="fade">
-            <ais-refinement-list
-              v-if="!showShapes"
-              attribute="categories.lvl0"
-              searchable
-              show-more
-            >
-              <div slot-scope="{ items, isFromSearch, refine, createURL }">
-                <ul>
-                  <li v-if="isFromSearch && !items.length">No results.</li>
-                  <li
-                    v-for="item in items"
-                    :key="item.value"
-                    class="filter-list"
-                  >
-                    <a
-                      class="button-filter"
-                      :href="createURL(item)"
-                      @click.prevent="refine(item.value)"
-                      :style="{
-                        border: item.isRefined ? '1px solid #1f1f24' : '',
-                      }"
+          <div class="filters-content">
+            <div class="title" @click="showShapeMethod()">
+              <h3>Category</h3>
+              <p>-</p>
+            </div>
+            <transition name="fade">
+              <ais-refinement-list
+                v-if="!showShapes"
+                attribute="categories.lvl0"
+                searchable
+                show-more
+              >
+                <div slot-scope="{ items, isFromSearch, refine, createURL }">
+                  <ul>
+                    <li v-if="isFromSearch && !items.length">No results.</li>
+                    <li
+                      v-for="item in items"
+                      :key="item.value"
+                      class="filter-list"
                     >
-                      <ais-highlight attribute="item" :hit="item" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </ais-refinement-list>
-          </transition>
-          <div class="line"></div>
-        </div>
-        <!-- <div class="filters-content">
+                      <a
+                        class="button-filter"
+                        :href="createURL(item)"
+                        @click.prevent="refine(item.value)"
+                        :style="{
+                          border: item.isRefined ? '1px solid #1f1f24' : '',
+                        }"
+                      >
+                        <ais-highlight attribute="item" :hit="item" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </ais-refinement-list>
+            </transition>
+            <div class="line"></div>
+          </div>
+          <div class="filters-content">
           <div class="title" @click="showMaterialMethod()">
             <h3>FRAME MATERIAL</h3>
             <p>-</p>
@@ -83,7 +80,7 @@
           </transition>
           <div class="line"></div>
         </div>
-        <div class="filters-content">
+        <!-- <div class="filters-content">
           <div class="title" @click="showGenderMethod()">
             <h3>GENDER</h3>
             <p>-</p>
@@ -194,7 +191,7 @@
           </transition>
           <div class="line"></div>
         </div> -->
-        <!-- <div class="filters-content">
+          <!-- <div class="filters-content">
           <div class="title">
             <h3>PRICE</h3>
             <p>-</p>
@@ -213,9 +210,10 @@
           </ais-range-input>
           <div class="line"></div>
         </div> -->
+        </div>
       </div>
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -264,27 +262,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/scss/variables/variables.scss";
+.filterBtn {
+  display: -webkit-flex;
+  display: flex;
+  margin: 1.2em 0;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  justify-content: space-between;
+
+  :nth-child(1) {
+    /* margin-right: 0.5rem; */
+  }
+
+  p {
+    font-size: 1.8rem;
+    color: $primary;
+    font-weight: 700;
+  }
+}
 .filters {
-  width: 20%;
+  width: 100%;
   will-change: width;
   margin: 0 auto;
-  .filterBtn {
-    display: -webkit-flex;
-    display: flex;
-    margin: 1.2em 0;
-    cursor: pointer;
-    position: relative;
-    text-transform: uppercase;
-    justify-content: space-between;
-
-    :nth-child(1) {
-      /* margin-right: 0.5rem; */
-    }
-
-    p {
-      font-size: 0.8rem;
-    }
-  }
   .filters-content {
     .line {
       border-bottom: 1px solid #e2e2e5;
@@ -314,7 +315,7 @@ export default {
       justify-content: space-between;
       h3 {
         font-size: 1rem;
-        color: #1f1f24;
+        color: $primary;
         text-transform: uppercase;
       }
     }
