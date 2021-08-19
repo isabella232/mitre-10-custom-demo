@@ -11,13 +11,14 @@
       <div>
         <div class="filters-content">
           <div class="title" @click="showShapeMethod()">
-            <h3>FRAME SHAPES</h3>
+            <h3>Category</h3>
             <p>-</p>
           </div>
           <transition name="fade">
             <ais-refinement-list
               v-if="!showShapes"
-              attribute="FrameShapeDescription"
+              attribute="fineLine"
+              :transform-items="transformItems"
               searchable
               show-more
             >
@@ -46,7 +47,7 @@
           </transition>
           <div class="line"></div>
         </div>
-        <div class="filters-content">
+        <!-- <div class="filters-content">
           <div class="title" @click="showMaterialMethod()">
             <h3>FRAME MATERIAL</h3>
             <p>-</p>
@@ -193,7 +194,7 @@
             </ais-refinement-list>
           </transition>
           <div class="line"></div>
-        </div>
+        </div> -->
         <!-- <div class="filters-content">
           <div class="title">
             <h3>PRICE</h3>
@@ -259,13 +260,19 @@ export default {
         value.max !== null ? value.max : range.max,
       ];
     },
+    transformItems(items) {
+      return items.map((item) => ({
+        ...item,
+        label: item.label.split("[").join(""),
+      }));
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .filters {
-  width: 70%;
+  width: 20%;
   will-change: width;
   margin: 0 auto;
   .filterBtn {

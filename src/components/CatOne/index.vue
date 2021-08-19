@@ -32,10 +32,11 @@
               slot-scope="{ item }"
             >
               <div class="image-wrapper">
-                <img :src="item.image_link" alt="" />
+                <img :src='item["img-Mitre10-300x300"]' alt="" />
               </div>
               <div class="infos">
-                <ais-highlight attribute="title" :hit="item" />
+                <ais-highlight attribute="name" :hit="item" />
+                <p>$ {{ item.nationalPrice }}</p>
               </div>
             </div>
           </ais-hits>
