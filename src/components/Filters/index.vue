@@ -45,7 +45,7 @@
           </div>
           <div class="filters-content">
           <div class="title" @click="showMaterialMethod()">
-            <h3>FRAME MATERIAL</h3>
+            <h3>BRAND</h3>
             <p>-</p>
           </div>
           <transition name="fade">
