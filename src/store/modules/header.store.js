@@ -6,6 +6,7 @@ const HeaderModule = {
     catTwo: false,
     showFederatedSearch: false,
     showModal: false,
+    reset: false,
   },
   getters: {
     getShowFederatedSearch(state) {
@@ -20,6 +21,9 @@ const HeaderModule = {
     getCatTwo(state) {
       return state.catTwo;
     },
+    getReset(state){
+      return state.reset
+    }
   },
   actions: {
     logoFunction({ commit }) {
@@ -48,6 +52,7 @@ const HeaderModule = {
       state.catTwo = false;
       state.showModal = false;
       state.showFederatedSearch = false;
+      state.reset = true;
     },
     CAT_TWO_FUNCTION(state) {
       state.catOne = false;
@@ -55,12 +60,14 @@ const HeaderModule = {
       state.catTwo = true;
       state.showFederatedSearch = false;
       state.showModal = false;
+      state.reset = false;
     },
     SVG_CLICK(state) {
       state.showFederatedSearch = !state.showFederatedSearch;
       state.catTwo = false;
       state.catOne = false;
       state.showModal = !state.showModal;
+      state.reset = false;
     },
     CAT_ONE_FUNCTION(state) {
       state.catOne = true;
@@ -68,12 +75,14 @@ const HeaderModule = {
       state.catTwo = false;
       state.showFederatedSearch = false;
       state.showModal = false;
+      state.reset = false;
     },
     SEARCH_NEW_QUERY(state) {
       state.showFederatedSearch = !state.showFederatedSearch;
       state.showModal = !state.showModal;
       state.catTwo = false;
       state.catOne = true;
+      state.reset = false;
     },
     CLOSE_MODAL(state) {
       state.showFederatedSearch = false;

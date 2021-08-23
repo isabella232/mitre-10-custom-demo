@@ -12,16 +12,12 @@
 
 <script>
 import dropdown from "vue-dropdowns";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   data() {
     return {
-      arrayOfObjects: [
-        { name: "110" },
-        { name: "112" },
-        { name: "114" },
-      ],
+      arrayOfObjects: [{ name: "110" }, { name: "112" }, { name: "114" }],
       object: {
         name: "Postal Code",
       },
@@ -34,12 +30,18 @@ export default {
 
   methods: {
     methodToRunOnSelect(payload) {
-      this.object = payload;
-      this.sendPersonnaSelected(payload.name)
-      this.selectedPersonna();
-      this.$emit("selectedPersonna", true)
+        this.object = payload;
+        this.sendPersonnaSelected(payload.name);
+        this.selectedPersonna();
+        this.$emit("selectedPersonna", true);
     },
-    ...mapActions('PersonnaModule', ['sendPersonnaSelected', 'selectedPersonna']),
+    ...mapActions("PersonnaModule", [
+      "sendPersonnaSelected",
+      "selectedPersonna",
+    ]),
+  },
+  computed: {
+    ...mapGetters("HeaderModule", ["getReset"]),
   },
 };
 </script>
