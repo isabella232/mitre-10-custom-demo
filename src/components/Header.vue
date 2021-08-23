@@ -11,7 +11,7 @@
         />
         <searchBox class="search-wrapper" />
         <ul>
-          <li @click="catOneFunction(), deletePersonna()">
+          <!-- <li @click="catOneFunction(), deletePersonna()">
             CAT ONE
           </li>
           <li @click="catTwoFunction()">
@@ -19,7 +19,7 @@
           </li>
           <li class="design">
             CAT 3
-          </li>
+          </li> -->
           <!-- <li>CAT 4</li>
           <li>CAT 5</li>
           <li>CAT 6</li>

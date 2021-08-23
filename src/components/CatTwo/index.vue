@@ -13,7 +13,6 @@
         <div class="sort-and-stat">
           <ais-stats />
           <ais-configure
-            filters="FRAMEMATERIAL:Metal"
             :userToken="userToken()"
           />
           <ais-sort-by

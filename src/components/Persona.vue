@@ -4,7 +4,7 @@
     :options="arrayOfObjects"
     :selected="object"
     v-on:updateOption="methodToRunOnSelect"
-    :placeholder="'Select an Item'"
+    :placeholder="'Select your postal code'"
     :closeOnOutsideClick="true"
   >
   </dropdown>
@@ -18,12 +18,12 @@ export default {
   data() {
     return {
       arrayOfObjects: [
-        { name: "Tiffany" },
-        { name: "Ben" },
-        { name: "Neutral" },
+        { name: "110" },
+        { name: "112" },
+        { name: "114" },
       ],
       object: {
-        name: "Persona",
+        name: "Postal Code",
       },
     };
   },

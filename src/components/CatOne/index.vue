@@ -5,7 +5,7 @@
       <div class="hits-wrapper">
         <div class="sort-and-stat">
           <ais-stats />
-          <ais-configure :userToken="userToken()" />
+          <ais-configure :filters="filtersMethod()" />
           <ais-sort-by
             :items="[
               {
@@ -32,12 +32,12 @@
               slot-scope="{ item }"
             >
               <div class="image-wrapper">
-                <img :src='item["img-Mitre10-300x300"]' alt="" />
+                <img :src="item['img-Mitre10-300x300']" alt="" />
               </div>
               <div class="infos">
                 <ais-highlight attribute="name" :hit="item" />
                 <p v-if="item.nationalPrice">$ {{ item.nationalPrice }}</p>
-                <p v-else>Minimum Amount: ${{item.minAmount}}</p>
+                <p v-else>Minimum Amount: ${{ item.minAmount }}</p>
               </div>
             </div>
           </ais-hits>
@@ -65,15 +65,15 @@ export default {
     showFiltersMethod() {
       this.showFilter = !this.showFilter;
     },
-    userToken() {
-      if (this.getPersonnaSelected == "Ben") {
-        return "RB_Ben";
+    filtersMethod() {
+      if (this.getPersonnaSelected == "110") {
+        return "postalCodes.110 > 0";
       }
-      if (this.getPersonnaSelected == "Tiffany") {
-        return "RB_Tiffany";
+      if (this.getPersonnaSelected == "112") {
+        return "postalCodes.112 > 0";
       }
-      if (this.getPersonnaSelected == "Neutral") {
-        return "Neutral";
+      if (this.getPersonnaSelected == "114") {
+        return "postalCodes.114 > 0";
       }
     },
     ...mapActions("SearchModule", ["selectedProduct"]),
@@ -126,7 +126,7 @@ export default {
     opacity: 0;
   }
 }
-.ais-hits{
+.ais-hits {
   width: 100%;
 }
 </style>
