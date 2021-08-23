@@ -135,7 +135,7 @@ export default {
       &::before {
         content: "";
         position: absolute;
-        background-color: black;
+        background-color: #EE7E2B;
         height: 4px;
         width: 100%;
         bottom: -0.5rem;

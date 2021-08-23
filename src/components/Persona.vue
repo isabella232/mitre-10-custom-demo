@@ -30,10 +30,10 @@ export default {
 
   methods: {
     methodToRunOnSelect(payload) {
-        this.object = payload;
-        this.sendPersonnaSelected(payload.name);
-        this.selectedPersonna();
-        this.$emit("selectedPersonna", true);
+      this.object = payload;
+      this.sendPersonnaSelected(payload.name);
+      this.selectedPersonna();
+      this.$emit("selectedPersonna", true);
     },
     ...mapActions("PersonnaModule", [
       "sendPersonnaSelected",
@@ -52,7 +52,7 @@ export default {
   border-radius: 5px;
 
   ::v-deep .dropdown-toggle {
-    color: $main-color;
+    color: $fourth-color;
     font-size: 1rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -60,7 +60,11 @@ export default {
   }
 
   ::v-deep .dropdown-toggle-placeholder {
-    color: #c4c4c4;
+    color: $main-color;
+  }
+
+  ::v-deep .dropdown-toggle:hover {
+    background: #6DCFF6;
   }
   ::v-deep .dropdown-menu {
     li {
@@ -70,7 +74,7 @@ export default {
       text-align: center;
       a:hover {
         color: white;
-        background: $main-color;
+        background: #6DCFF6;
       }
     }
   }
