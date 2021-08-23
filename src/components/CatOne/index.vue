@@ -9,11 +9,11 @@
           <ais-sort-by
             :items="[
               {
-                value: 'rayban_merged',
+                value: 'products',
                 label: 'Relevancy',
               },
               {
-                value: 'rayban_merged_price_dsc',
+                value: 'products_price_desc',
                 label: 'Price Desc',
               },
               {

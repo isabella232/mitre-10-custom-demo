@@ -6,6 +6,43 @@
     <transition name="fade">
       <div v-if="!showFilters" class="filters">
         <div>
+          <div v-if="getPersonnaSelected" class="filters-content">
+            <div class="title" @click="showGenderMethod()">
+              <h3>STORE</h3>
+              <p>-</p>
+            </div>
+            <transition name="fade">
+              <ais-refinement-list
+                v-if="!showGender"
+                :attribute="`postalCodes.${getPersonnaSelected}`"
+                searchable
+                show-more
+              >
+                <div slot-scope="{ items, isFromSearch, refine, createURL }">
+                  <ul>
+                    <li v-if="isFromSearch && !items.length">No results.</li>
+                    <li
+                      v-for="item in items"
+                      :key="item.value"
+                      class="filter-list"
+                    >
+                      <a
+                        class="button-filter"
+                        :href="createURL(item)"
+                        @click.prevent="refine(item.value)"
+                        :style="{
+                          border: item.isRefined ? '1px solid #1f1f24' : '',
+                        }"
+                      >
+                        <ais-highlight attribute="item" :hit="item" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </ais-refinement-list>
+            </transition>
+            <div class="line"></div>
+          </div>
           <div class="filters-content">
             <div class="title" @click="showShapeMethod()">
               <h3>Category</h3>
@@ -52,43 +89,6 @@
               <ais-refinement-list
                 v-if="!showMaterial"
                 attribute="brandName"
-                searchable
-                show-more
-              >
-                <div slot-scope="{ items, isFromSearch, refine, createURL }">
-                  <ul>
-                    <li v-if="isFromSearch && !items.length">No results.</li>
-                    <li
-                      v-for="item in items"
-                      :key="item.value"
-                      class="filter-list"
-                    >
-                      <a
-                        class="button-filter"
-                        :href="createURL(item)"
-                        @click.prevent="refine(item.value)"
-                        :style="{
-                          border: item.isRefined ? '1px solid #1f1f24' : '',
-                        }"
-                      >
-                        <ais-highlight attribute="item" :hit="item" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </ais-refinement-list>
-            </transition>
-            <div class="line"></div>
-          </div>
-          <div class="filters-content">
-            <div class="title" @click="showGenderMethod()">
-              <h3>STORE{{ getPersonnaSelected }}</h3>
-              <p>-</p>
-            </div>
-            <transition name="fade">
-              <ais-refinement-list
-                v-if="!showGender"
-                attribute="postalCodes"
                 searchable
                 show-more
               >
