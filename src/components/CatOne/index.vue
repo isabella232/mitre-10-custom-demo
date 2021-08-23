@@ -17,7 +17,7 @@
                 label: 'Price Desc',
               },
               {
-                value: 'rayban_merged_price_asc',
+                value: 'products_price_asc',
                 label: 'Price Asc.',
               },
             ]"
@@ -38,6 +38,7 @@
                 <ais-highlight attribute="name" :hit="item" />
                 <p v-if="item.nationalPrice">$ {{ item.nationalPrice }}</p>
                 <p v-else>Minimum Amount: ${{ item.minAmount }}</p>
+                <p>{{ item.postalCodes[parseInt(getPersonnaSelected)] }}</p>
               </div>
             </div>
           </ais-hits>

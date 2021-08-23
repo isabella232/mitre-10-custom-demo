@@ -44,45 +44,82 @@
             <div class="line"></div>
           </div>
           <div class="filters-content">
-          <div class="title" @click="showMaterialMethod()">
-            <h3>BRAND</h3>
-            <p>-</p>
-          </div>
-          <transition name="fade">
-            <ais-refinement-list
-              v-if="!showMaterial"
-              attribute="FRAMEMATERIAL"
-              searchable
-              show-more
-            >
-              <div slot-scope="{ items, isFromSearch, refine, createURL }">
-                <ul>
-                  <li v-if="isFromSearch && !items.length">No results.</li>
-                  <li
-                    v-for="item in items"
-                    :key="item.value"
-                    class="filter-list"
-                  >
-                    <a
-                      class="button-filter"
-                      :href="createURL(item)"
-                      @click.prevent="refine(item.value)"
-                      :style="{
-                        border: item.isRefined ? '1px solid #1f1f24' : '',
-                      }"
+            <div class="title" @click="showMaterialMethod()">
+              <h3>BRAND</h3>
+              <p>-</p>
+            </div>
+            <transition name="fade">
+              <ais-refinement-list
+                v-if="!showMaterial"
+                attribute="brandName"
+                searchable
+                show-more
+              >
+                <div slot-scope="{ items, isFromSearch, refine, createURL }">
+                  <ul>
+                    <li v-if="isFromSearch && !items.length">No results.</li>
+                    <li
+                      v-for="item in items"
+                      :key="item.value"
+                      class="filter-list"
                     >
-                      <ais-highlight attribute="item" :hit="item" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </ais-refinement-list>
-          </transition>
-          <div class="line"></div>
-        </div>
-        <!-- <div class="filters-content">
+                      <a
+                        class="button-filter"
+                        :href="createURL(item)"
+                        @click.prevent="refine(item.value)"
+                        :style="{
+                          border: item.isRefined ? '1px solid #1f1f24' : '',
+                        }"
+                      >
+                        <ais-highlight attribute="item" :hit="item" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </ais-refinement-list>
+            </transition>
+            <div class="line"></div>
+          </div>
+          <div class="filters-content">
+            <div class="title" @click="showGenderMethod()">
+              <h3>STORE{{ getPersonnaSelected }}</h3>
+              <p>-</p>
+            </div>
+            <transition name="fade">
+              <ais-refinement-list
+                v-if="!showGender"
+                attribute="postalCodes"
+                searchable
+                show-more
+              >
+                <div slot-scope="{ items, isFromSearch, refine, createURL }">
+                  <ul>
+                    <li v-if="isFromSearch && !items.length">No results.</li>
+                    <li
+                      v-for="item in items"
+                      :key="item.value"
+                      class="filter-list"
+                    >
+                      <a
+                        class="button-filter"
+                        :href="createURL(item)"
+                        @click.prevent="refine(item.value)"
+                        :style="{
+                          border: item.isRefined ? '1px solid #1f1f24' : '',
+                        }"
+                      >
+                        <ais-highlight attribute="item" :hit="item" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </ais-refinement-list>
+            </transition>
+            <div class="line"></div>
+          </div>
+          <!-- <div class="filters-content">
           <div class="title" @click="showGenderMethod()">
-            <h3>GENDER</h3>
+            <h3>STORE</h3>
             <p>-</p>
           </div>
           <transition name="fade">
@@ -219,6 +256,7 @@
 <script>
 // import VueSlider from "vue-slider-component";
 import "vue-slider-component/theme/default.css";
+import { mapGetters } from "vuex";
 export default {
   name: "Filters",
   components: {
@@ -257,6 +295,9 @@ export default {
         value.max !== null ? value.max : range.max,
       ];
     },
+  },
+  computed: {
+    ...mapGetters("PersonnaModule", ["getPersonnaSelected"]),
   },
 };
 </script>
