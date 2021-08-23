@@ -13,10 +13,12 @@
         @click="selectedProduct(item)"
       >
         <div class="image-wrapper">
-          <img :src='item["img-Mitre10-300x300"]' alt="" />
+          <img :src="item['img-Mitre10-300x300']" alt="" />
         </div>
         <div class="infos">
           <ais-highlight attribute="name" :hit="item" />
+          <p v-if="item.nationalPrice">$ {{ item.nationalPrice }}</p>
+          <p v-else>Minimum Amount: ${{ item.minAmount }}</p>
         </div>
       </div>
     </ais-hits>
