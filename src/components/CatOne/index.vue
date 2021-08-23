@@ -6,6 +6,13 @@
         <div class="sort-and-stat">
           <ais-stats />
           <ais-configure :filters="filtersMethod()" />
+          <button
+            v-if="getPersonnaSelected"
+            @click="erraseFunction()"
+            class="errase-button"
+          >
+            See all postal codes
+          </button>
           <ais-sort-by
             :items="[
               {
@@ -77,8 +84,13 @@ export default {
         return "postalCodes.114 > 0";
       }
     },
+    erraseFunction() {
+      console.log("FONCTION EFFACER");
+      this.deletePersonna();
+    },
     ...mapActions("SearchModule", ["selectedProduct"]),
     ...mapActions("HeaderModule", ["svgClick"]),
+    ...mapActions("PersonnaModule", ["deletePersonna"]),
   },
   computed: {
     ...mapGetters("PersonnaModule", ["getPersonnaSelected"]),
@@ -129,5 +141,15 @@ export default {
 }
 .ais-hits {
   width: 100%;
+}
+.errase-button {
+  background-color: white;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+}
+.errase-button:hover {
+  background-color: $primary;
+  color: $fourth-color;
 }
 </style>
