@@ -5,6 +5,7 @@
     <div class="sort-and-stat">
       <ais-stats />
     </div>
+    <ais-configure :hits-per-page.camel="12" />
     <ais-hits>
       <div
         class="hits-wrapper"

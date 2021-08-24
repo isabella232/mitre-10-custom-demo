@@ -1,13 +1,13 @@
 <template>
   <div class="carousel-container">
     <h3>Recommandations</h3>
-    <ais-configure :hits-per-page.camel="7" ruleContexts="aviator">
+    <ais-configure :hits-per-page.camel="7">
       <HitsCarouselReco />
     </ais-configure>
     <h3>Bought together</h3>
     <ais-instant-search
       :search-client="searchClient"
-      index-name="rayban_merged"
+      index-name="products_price_desc"
     >
       <ais-configure :hits-per-page.camel="7">
         <HitsCarouselBought />
@@ -24,8 +24,8 @@ export default {
   data() {
     return {
       searchClient: algoliasearch(
-        "JDBD6EJM33",
-        "0fe54b2e3991d370c91376981aff9d48"
+        "L2A9XHB3DS",
+        "fef9f6782afb37dde429edf39f555a1b"
       ),
     };
   },
