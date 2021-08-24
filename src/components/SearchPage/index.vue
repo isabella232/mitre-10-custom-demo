@@ -68,6 +68,7 @@ g
   margin: -1rem auto 2rem auto;
   .ais-Stats-text {
     color: $sixth-color;
+    margin-left: 7em;
   }
 }
 .ais-SortBy-select {
@@ -117,7 +118,7 @@ g
 }
 
 .federated-title {
-  margin-left: 3rem;
+  margin-left: 9rem;
   margin-bottom: 1rem;
 }
 </style>
