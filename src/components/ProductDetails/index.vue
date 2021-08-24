@@ -4,13 +4,13 @@
     <div class="modal-detail">
       <div class="product-side">
         <div class="modal-images">
-          <img :src="getProductDetails.image_link" alt="" />
+          <img :src="getProductDetails['img-Mitre10-96x96']" alt="" />
         </div>
       </div>
       <div class="fake-filters">
         <div class="modal-infos">
           <h3>{{ getProductDetails.title }}</h3>
-          <p>${{ getProductDetails.price }}</p>
+          <p>${{ getProductDetails.nationalPrice }}</p>
           <p>{{ getProductDetails.description }}</p>
           <p class="btn-modal">Buy me</p>
         </div>
@@ -61,7 +61,8 @@ export default {
       align-items: center;
       width: 100%;
       img {
-        width: 90%;
+        width: 65%;
+        margin: 0 auto;
       }
     }
   }
