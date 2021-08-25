@@ -5,7 +5,7 @@
       <div class="hits-wrapper">
         <div class="sort-and-stat">
           <ais-stats />
-          <ais-configure :filters="filtersMethod()" />
+          <ais-configure :filters="filtersMethod()" :hits-per-page.camel="18"/>
           <button
             v-if="getPersonnaSelected"
             @click="erraseFunction()"
@@ -45,7 +45,7 @@
                 <ais-highlight attribute="name" :hit="item" />
                 <p v-if="item.nationalPrice">$ {{ item.nationalPrice }}</p>
                 <p v-else>Minimum Amount: ${{ item.minAmount }}</p>
-                <p>{{ item.postalCodes[parseInt(getPersonnaSelected)] }}</p>
+                <!-- <p>{{ item.postalCodes[parseInt(getPersonnaSelected)] }}</p> -->
               </div>
             </div>
           </ais-hits>
