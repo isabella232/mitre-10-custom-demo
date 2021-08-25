@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import dropdown from "vue-dropdowns";
+import dropdown from "./vue-dropdowns";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
