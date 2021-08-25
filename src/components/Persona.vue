@@ -4,7 +4,7 @@
     :options="arrayOfObjects"
     :selected="object"
     v-on:updateOption="methodToRunOnSelect"
-    :placeholder="'Select your postal code'"
+    :placeholder="'POSTAL CODE'"
     :closeOnOutsideClick="true"
   >
   </dropdown>
@@ -30,6 +30,7 @@ export default {
 
   methods: {
     methodToRunOnSelect(payload) {
+      console.log(this.selected, "selected");
       this.object = payload;
       this.sendPersonnaSelected(payload.name);
       this.selectedPersonna();
@@ -60,11 +61,11 @@ export default {
   }
 
   ::v-deep .dropdown-toggle-placeholder {
-    color: $main-color;
+    color: $fourth-color;
   }
 
   ::v-deep .dropdown-toggle:hover {
-    background: #6DCFF6;
+    background: #6dcff6;
   }
   ::v-deep .dropdown-menu {
     li {
@@ -74,7 +75,7 @@ export default {
       text-align: center;
       a:hover {
         color: white;
-        background: #6DCFF6;
+        background: #6dcff6;
       }
     }
   }

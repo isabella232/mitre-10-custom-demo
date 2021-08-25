@@ -3,6 +3,8 @@
     <div class="filterBtn">
       <p>Shop By</p>
     </div>
+    <h3 v-if="getPersonnaSelected" class="shop">Postal Code : 112</h3>
+    <div v-if="getPersonnaSelected" class="line"></div>
     <transition name="fade">
       <div v-if="!showFilters" class="filters">
         <div>
@@ -328,11 +330,6 @@ export default {
   will-change: width;
   margin: 0 auto;
   .filters-content {
-    .line {
-      border-bottom: 1px solid #e2e2e5;
-      width: 70%;
-      margin: 1em auto 1em auto;
-    }
     .filter-list {
       width: 100%;
       .button-filter {
@@ -369,5 +366,16 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+
+.shop {
+  font-size: 1rem;
+  color: $secondary;
+  text-transform: uppercase;
+}
+.line {
+  border-bottom: 1px solid #e2e2e5;
+  width: 70%;
+  margin: 1em auto 1em auto;
 }
 </style>
