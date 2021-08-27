@@ -13,7 +13,7 @@
             refine($event.currentTarget.value),
               modifQuery($event.currentTarget.value)
           "
-          @click="svgClick()"
+          @click="searchNewQuery()"
           @keyup.enter="searchNewQuery()"
         />
         <!-- <input
