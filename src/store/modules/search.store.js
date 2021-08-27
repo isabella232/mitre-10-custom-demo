@@ -28,6 +28,7 @@ const SearchModule = {
       state.query = value;
     },
     SELECTED_PRODUCT(state, value) {
+      console.log(value)
       state.ProductDetails = value;
     },
   },
