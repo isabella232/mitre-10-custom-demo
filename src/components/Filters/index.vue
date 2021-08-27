@@ -370,7 +370,7 @@ export default {
 
 .shop {
   font-size: 1rem;
-  color: $secondary;
+  color: $main-color;
   text-transform: uppercase;
 }
 .line {

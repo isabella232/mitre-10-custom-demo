@@ -65,7 +65,7 @@ export default {
   }
 
   ::v-deep .dropdown-toggle:hover {
-    background: #6dcff6;
+    background: #000;
   }
   ::v-deep .dropdown-menu {
     li {
@@ -75,7 +75,7 @@ export default {
       text-align: center;
       a:hover {
         color: white;
-        background: #6dcff6;
+        background: #000;
       }
     }
   }

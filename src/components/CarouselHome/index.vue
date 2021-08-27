@@ -16,13 +16,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/scss/variables/variables.scss";
+@import "@/assets/scss/mixin.scss";
 .carousel-container {
   width: 90%;
   margin: 5rem auto;
   background-color: #F7F7F7;
   h3 {
     font-family: "Oswald", sans-serif;
-    color: #000;
+    color: $primary;
     font-size: 2rem;
   }
 }

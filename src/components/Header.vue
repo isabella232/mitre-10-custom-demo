@@ -4,7 +4,7 @@
     <div class="header-wrapper">
       <div class="list-img-wrapper">
         <img
-          src="https://www.mitre10.com.au/static/version1629191255/frontend/Balance/mitre10/en_AU/images/logo.svg"
+          src="https://assets.mitre10.co.nz/sys-master/images/had/he5/9886616289310/Logo.svg"
           alt="logo"
           class="logo"
           @click="logoFunction(), deletePersonna()"
