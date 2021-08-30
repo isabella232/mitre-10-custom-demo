@@ -390,7 +390,7 @@ export default {
       background-color: #fff;
       transition: all 0.2s ease-in-out;
       cursor: pointer;
-      margin: 0rem 0 0.5rem 0rem;
+      margin: 0 0 0.8rem 0.8rem !important;
     }
   }
   .ais-HierarchicalMenu-list--lvl0 {

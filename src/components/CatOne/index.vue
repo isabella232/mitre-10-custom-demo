@@ -153,17 +153,21 @@ export default {
   background-color: $primary;
   color: $fourth-color;
 }
-.ais-ClearRefinements-button--disabled {
+.ais-ClearRefinements-button:disabled {
   background-color: white;
   border: none;
   padding: 1em;
   cursor: pointer;
+  color: $seventh-color !important;
+  border-radius: 8px;
 }
 .ais-ClearRefinements-button {
   background-color: white;
   border: none;
   padding: 1em;
   cursor: pointer;
-  color: $primary;
+  color: $fourth-color !important;
+  background-color: $primary;
+  border-radius: 8px;
 }
 </style>
