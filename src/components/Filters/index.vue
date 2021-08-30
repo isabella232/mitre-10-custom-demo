@@ -3,7 +3,7 @@
     <div class="filterBtn">
       <p>Shop By</p>
     </div>
-    <h3 v-if="getPersonnaSelected" class="shop">Postal Code : 112</h3>
+    <h3 v-if="getPersonnaSelected" class="shop">Postal Code : {{getPersonnaSelected}}</h3>
     <div v-if="getPersonnaSelected" class="line"></div>
     <transition name="fade">
       <div v-if="!showFilters" class="filters">
@@ -51,34 +51,16 @@
               <p>-</p>
             </div>
             <transition name="fade">
-              <ais-refinement-list
-                v-if="!showShapes"
-                attribute="categories.lvl0"
-                searchable
-                show-more
-              >
-                <div slot-scope="{ items, isFromSearch, refine, createURL }">
-                  <ul>
-                    <li v-if="isFromSearch && !items.length">No results.</li>
-                    <li
-                      v-for="item in items"
-                      :key="item.value"
-                      class="filter-list"
-                    >
-                      <a
-                        class="button-filter"
-                        :href="createURL(item)"
-                        @click.prevent="refine(item.value)"
-                        :style="{
-                          border: item.isRefined ? '1px solid #1f1f24' : '',
-                        }"
-                      >
-                        <ais-highlight attribute="item" :hit="item" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </ais-refinement-list>
+              <ais-hierarchical-menu
+                :attributes="[
+                  'categories.lvl0',
+                  'categories.lvl1',
+                  'categories.lvl2',
+                  'categories.lvl3',
+                  'categories.lvl4',
+                ]"
+                :show-parent-level="false"
+              />
             </transition>
             <div class="line"></div>
           </div>
@@ -304,7 +286,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/assets/scss/variables/variables.scss";
 .filterBtn {
   display: -webkit-flex;
@@ -377,5 +359,55 @@ export default {
   border-bottom: 1px solid #e2e2e5;
   width: 70%;
   margin: 1em auto 1em auto;
+}
+
+.ais-HierarchicalMenu {
+  .ais-HierarchicalMenu-count {
+    display: none !important;
+  }
+  .ais-HierarchicalMenu-label {
+    border: 1px solid #e2e2e5;
+    text-decoration: none;
+    color: #1f1f24;
+    width: 100%;
+    display: flex;
+    margin: 0.5rem 0;
+    padding: 0.8em;
+    font-size: 0.8rem;
+    background-color: $fourth-color;
+    transition: all 0.2s ease-in-out;
+  }
+  .ais-HierarchicalMenu-list--lvl1 {
+    .ais-HierarchicalMenu-label {
+      border: 1px solid #e2e2e5;
+      text-decoration: none;
+      color: #003097;
+      width: 100%;
+      display: -webkit-flex;
+      display: flex;
+      padding: 0.8em;
+      font-size: 0.8rem;
+      background-color: #fff;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      margin: 0rem 0 0.5rem 0rem;
+    }
+  }
+  .ais-HierarchicalMenu-list--lvl0 {
+    .ais-HierarchicalMenu-item--selected {
+      a {
+        .ais-HierarchicalMenu-label {
+          background: linear-gradient(163deg, #fff, #fff 26%, #000);
+        }
+      }
+      li {
+        .ais-HierarchicalMenu-label {
+          background-color: $fourth-color !important;
+          background: none !important;
+          color: $primary;
+        }
+      }
+    }
+  }
 }
 </style>

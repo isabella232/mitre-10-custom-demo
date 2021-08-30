@@ -79,9 +79,9 @@ const HeaderModule = {
     },
     SEARCH_NEW_QUERY(state) {
       state.showFederatedSearch = !state.showFederatedSearch;
-      state.showModal = !state.showModal;
+      state.showModal = true;
       state.catTwo = false;
-      state.catOne = true;
+      state.catOne = false;
       state.reset = false;
     },
     CLOSE_MODAL(state) {

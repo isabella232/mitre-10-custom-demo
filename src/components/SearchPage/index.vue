@@ -66,7 +66,7 @@ g
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  margin: -1rem auto 2rem auto;
+  /* margin: -1rem auto 2rem auto; */
   .ais-Stats-text {
     color: $sixth-color;
     margin-left: 7em;

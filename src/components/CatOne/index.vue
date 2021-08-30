@@ -5,7 +5,7 @@
       <div class="hits-wrapper">
         <div class="sort-and-stat">
           <ais-stats />
-          <ais-configure :filters="filtersMethod()" :hits-per-page.camel="18"/>
+          <ais-configure :filters="filtersMethod()" :hits-per-page.camel="18" />
           <button
             v-if="getPersonnaSelected"
             @click="erraseFunction()"
@@ -13,6 +13,7 @@
           >
             See all postal codes
           </button>
+          <ais-clear-refinements />
           <ais-sort-by
             :items="[
               {
@@ -98,7 +99,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/assets/scss/variables/variables.scss";
 @import "@/assets/scss/mixin.scss";
 
@@ -120,7 +121,7 @@ export default {
     margin: 0 auto;
   }
   .filterBtn {
-    width: 10%;
+    width: 50%;
     margin: 0 0 0 5.4em;
     display: -webkit-flex;
     display: flex;
@@ -151,5 +152,18 @@ export default {
 .errase-button:hover {
   background-color: $primary;
   color: $fourth-color;
+}
+.ais-ClearRefinements-button--disabled {
+  background-color: white;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+}
+.ais-ClearRefinements-button {
+  background-color: white;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+  color: $primary;
 }
 </style>

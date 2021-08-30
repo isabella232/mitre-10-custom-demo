@@ -6,6 +6,7 @@
         slot-scope="{ currentRefinement, isSearchStalled, refine }"
       >
         <input
+          v-if="!getCatOne"
           type="search"
           placeholder="Search..."
           :value="currentRefinement"
@@ -14,15 +15,19 @@
               modifQuery($event.currentTarget.value)
           "
           @click="searchNewQuery()"
-          @keyup.enter="searchNewQuery()"
+          @keyup.enter="searchNewQuery(), closeModal(), catOneFunction()"
         />
-        <!-- <input
+        <input
           v-else
           type="search"
           placeholder="Search..."
-          :value="hits"
-          @input="refine($event.currentTarget.value)"
-        /> -->
+          :value="currentRefinement"
+          @input="
+            refine($event.currentTarget.value),
+              modifQuery($event.currentTarget.value)
+          "
+          @keyup.enter="searchNewQuery(), closeModal()"
+        />
         <span :hidden="!isSearchStalled">Loading...</span>
         <!-- <ais-voice-search :search-as-you-speak="false" /> -->
       </div>
@@ -31,15 +36,23 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "SearchBox",
   methods: {
-    ...mapActions("HeaderModule", ["svgClick", "searchNewQuery"]),
+    ...mapActions("HeaderModule", [
+      "svgClick",
+      "searchNewQuery",
+      "closeModal",
+      "catOneFunction",
+    ]),
     ...mapActions("SearchModule", ["modifQuery"]),
     sendQuery() {
       console.log("ENTER");
     },
+  },
+  computed: {
+    ...mapGetters("HeaderModule", ["getCatOne"]),
   },
 };
 </script>
