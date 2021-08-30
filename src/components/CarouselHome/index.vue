@@ -1,7 +1,7 @@
 <template>
   <div class="carousel-container">
     <h3>Our Products</h3>
-    <ais-configure :hits-per-page.camel="7"/>
+    <ais-configure :hits-per-page.camel="7" />
     <HitsCarouselHome />
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
 .carousel-container {
   width: 90%;
   margin: 5rem auto;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   h3 {
     font-family: "Oswald", sans-serif;
     color: $primary;

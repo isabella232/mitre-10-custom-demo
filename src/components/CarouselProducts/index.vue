@@ -44,6 +44,7 @@ export default {
     font-family: "Oswald", sans-serif;
     color: #000;
     font-size: 2rem;
+        margin: 0 1em !important;
   }
 }
 </style>
